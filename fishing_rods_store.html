@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlueCurrent™ Rods – Premium Fishing Rods</title>
+  <meta name="description" content="Premium fishing rods engineered for sensitivity, strength, and all‑day comfort. Built by anglers, for anglers."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bc-brand: #0a66c2; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .backdrop { backdrop-filter: saturate(180%) blur(8px); }
+    .badge { @apply absolute left-3 top-3 bg-black/80 text-white text-xs px-2 py-0.5 rounded; }
+    /* Simple drawer */
+    .drawer { position: fixed; top: 0; right: -100%; width: 100%; max-width: 480px; height: 100%; background: #fff; box-shadow: -8px 0 24px rgba(2,8,23,0.15); transition: right .25s ease; z-index: 60; }
+    .drawer.open { right: 0; }
+    .drawer-overlay { position: fixed; inset: 0; background: rgba(2,8,23,.5); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 50; }
+    .drawer-overlay.show { opacity: 1; pointer-events: auto; }
+    .btn { @apply inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-medium shadow-sm border border-slate-200 bg-white hover:bg-slate-50; }
+    .btn-primary { @apply bg-blue-600 text-white hover:bg-blue-700 border-transparent; }
+    .btn-ghost { @apply hover:bg-slate-100 border-transparent; }
+    .input { @apply w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500; }
+    .select { @apply w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white; }
+    .card { @apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm; }
+    .card-h { @apply p-4 sm:p-5; }
+    .sep { @apply border-t border-slate-200; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop bg-white/80 backdrop border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 18c-3 0-5-3-10-3S5 18 2 18c2-2.5 5-7 10-7s8 4.5 10 7Z"/><path d="M8 7c.667-.667 2-2 4-2 2 0 3.333 1.333 4 2"/>
+        </svg>
+        <span class="font-extrabold tracking-tight text-xl">BlueCurrent™ Rods</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#shop" class="hover:text-blue-700">Shop</a>
+        <a href="#why" class="hover:text-blue-700">Why Us</a>
+        <a href="#reviews" class="hover:text-blue-700">Reviews</a>
+        <a href="#faq" class="hover:text-blue-700">FAQ</a>
+      </nav>
+      <button id="cartBtn" class="btn" aria-haspopup="dialog" aria-controls="cartDrawer" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/>
+        </svg>
+        Cart (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-[url('https://images.unsplash.com/photo-1503149779833-1de50ebe5f76?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 -z-10 bg-blue-900/40"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-white">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Cast Farther. Feel More. Land Bigger.</h1>
+      <p class="mt-4 max-w-2xl text-lg text-blue-100">
+        Premium fishing rods engineered for sensitivity, strength, and all‑day comfort. Built by anglers, for anglers.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="#shop">Shop rods
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <button class="btn">Get a free sizing guide</button>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-blue-100">
+        <div class="flex items-center gap-2"><span class="font-semibold">✓</span> Lifetime warranty</div>
+        <div class="flex items-center gap-2"><span class="font-semibold">✓</span> Free shipping $200+</div>
+        <div class="flex items-center gap-2"><span class="font-semibold">✓</span> 30‑day returns</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop / Filters -->
+  <section id="shop" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold tracking-tight">Shop Fishing Rods</h2>
+      <p class="text-slate-600">Filter by water type and power, or search by name.</p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 items-end">
+      <div class="col-span-2">
+        <label class="sr-only" for="search">Search</label>
+        <div class="relative">
+          <input id="search" class="input pl-9" placeholder="Search rods"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-3 top-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Water</label>
+        <select id="water" class="select">
+          <option>All</option>
+          <option>Freshwater</option>
+          <option>Saltwater</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Power</label>
+        <select id="power" class="select">
+          <option>All</option>
+          <option>UL</option>
+          <option>ML</option>
+          <option>M</option>
+          <option>MH</option>
+          <option>H</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="grid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why" class="bg-white border-y border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl font-bold tracking-tight">Why anglers choose BlueCurrent</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="card"><div class="card-h"><div class="text-base font-semibold mb-1">Lifetime Warranty</div><p class="text-sm text-slate-600">Break it on a fish? We've got you.</p></div></div>
+        <div class="card"><div class="card-h"><div class="text-base font-semibold mb-1">Fast, Free Shipping</div><p class="text-sm text-slate-600">Free on orders $200+ anywhere in the U.S.</p></div></div>
+        <div class="card"><div class="card-h"><div class="text-base font-semibold mb-1">Fair Prices</div><p class="text-sm text-slate-600">Pro‑grade components without the markup.</p></div></div>
+        <div class="card"><div class="card-h"><div class="text-base font-semibold mb-1">Angler‑Designed</div><p class="text-sm text-slate-600">Tested on lakes, rivers, and offshore.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold tracking-tight">What anglers are saying</h2>
+      <p class="text-slate-600">Real reviews from verified customers.</p>
+    </div>
+    <div id="reviewsGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6"></div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-slate-50 border-t border-slate-200">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl font-bold tracking-tight">Frequently asked questions</h2>
+      <div class="mt-6 space-y-3">
+        <details class="card"><summary class="card-h cursor-pointer text-base font-semibold">What does the lifetime warranty cover?</summary><div class="px-4 pb-4 text-slate-600 text-sm">Manufacturing defects and normal use failures. Accidental damage is covered by our low‑cost replacement program.</div></details>
+        <details class="card"><summary class="card-h cursor-pointer text-base font-semibold">How long does shipping take?</summary><div class="px-4 pb-4 text-slate-600 text-sm">Orders ship within 24 hours Monday–Friday. U.S. delivery in 2–5 business days.</div></details>
+        <details class="card"><summary class="card-h cursor-pointer text-base font-semibold">What is your return policy?</summary><div class="px-4 pb-4 text-slate-600 text-sm">Try it for 30 days. If it's not your new favorite rod, send it back for a full refund (minus return shipping).</div></details>
+        <details class="card"><summary class="card-h cursor-pointer text-base font-semibold">How should I care for my rod?</summary><div class="px-4 pb-4 text-slate-600 text-sm">Rinse with fresh water after use, especially after saltwater trips. Store in a cool, dry place.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="card">
+        <div class="card-h">
+          <div class="text-xl font-semibold">Get in touch</div>
+          <p class="text-slate-600">Questions about sizing, techniques, or warranties? We’re here to help.</p>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1" for="name">Name</label>
+              <input id="name" class="input" placeholder="Jane Angler"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="email">Email</label>
+              <input id="email" class="input" type="email" placeholder="you@example.com"/>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-sm font-medium mb-1" for="message">Message</label>
+            <textarea id="message" class="input" rows="5" placeholder="How can we help?"></textarea>
+          </div>
+          <button class="btn btn-primary w-full mt-4" onclick="alert('Demo form — connect your handler/CRM')">Send message</button>
+          <p class="text-xs text-slate-500 mt-2">This is a demo form. Connect your form handler or CRM.</p>
+        </div>
+      </div>
+      <div class="card bg-gradient-to-br from-blue-50 to-white">
+        <div class="card-h">
+          <div class="text-xl font-semibold">Company</div>
+          <p class="text-slate-600">BlueCurrent Outdoors, 123 Lakeview Rd, Traverse City, MI</p>
+          <div class="space-y-2 text-sm mt-4">
+            <div class="flex items-center gap-2">📞 (800) 555‑0199</div>
+            <div class="flex items-center gap-2">✉️ support@bluecurrentrods.com</div>
+            <div class="flex items-center gap-2">📍 Mon–Fri, 9am–5pm ET</div>
+          </div>
+          <hr class="my-3 sep"/>
+          <p class="text-slate-600 text-sm">Follow us for tips, rigging guides, and on‑the‑water tests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold">BlueCurrent™ Rods</span>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">Precision‑built rods for every adventure. Designed in Michigan.</p>
+      </div>
+      <div>
+        <div class="font-semibold">Shop</div>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li><a href="#shop" class="hover:underline">Freshwater</a></li>
+          <li><a href="#shop" class="hover:underline">Saltwater</a></li>
+          <li><a href="#shop" class="hover:underline">Travel</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold">Company</div>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li><a href="#why" class="hover:underline">About</a></li>
+          <li><a href="#reviews" class="hover:underline">Reviews</a></li>
+          <li><a href="#faq" class="hover:underline">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold">Legal</div>
+        <ul class="mt-3 space-y-2 text-sm text-slate-600">
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+          <li>Warranty</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">© <span id="year"></span> BlueCurrent Outdoors. All rights reserved.</div>
+  </footer>
+
+  <!-- Drawer (Cart) -->
+  <div id="overlay" class="drawer-overlay"></div>
+  <aside id="cartDrawer" class="drawer" role="dialog" aria-labelledby="cartTitle" aria-modal="true">
+    <div class="h-full flex flex-col">
+      <div class="p-4 border-b border-slate-200 flex items-start justify-between">
+        <div>
+          <h2 id="cartTitle" class="text-lg font-semibold">Your Cart</h2>
+          <p class="text-sm text-slate-600">Free shipping over $200. Use code <b>TIGHTLINES</b> for 10% off.</p>
+        </div>
+        <button id="closeCart" class="btn-ghost rounded-full p-2" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="p-4 space-y-4 overflow-y-auto grow"></div>
+      <div class="p-4 border-t border-slate-200">
+        <div class="space-y-3">
+          <div>
+            <label class="block text-sm font-medium mb-1" for="promo">Promo code</label>
+            <div class="flex gap-2">
+              <input id="promo" class="input" placeholder="Enter code"/>
+              <button id="applyPromo" class="btn">Apply</button>
+            </div>
+          </div>
+          <div id="totals" class="text-sm space-y-2"></div>
+          <button id="checkout" class="btn btn-primary w-full mt-2" disabled>Checkout</button>
+          <p class="text-xs text-slate-500">Demo checkout — connect your payment gateway.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    // Data
+    const PRODUCTS = [
+      { id: "rod-elite-7", name: "Elite 7' Spinning Rod", price: 149.99, rating: 4.8, reviews: 182, weight: "Medium-Light", power: "ML", action: "Fast", length: "7'0\"", water: "Freshwater", img: "https://images.unsplash.com/photo-1590540186066-f7f5c7e3bf9c?q=80&w=1600&auto=format&fit=crop", badge: "Bestseller" },
+      { id: "rod-pro-610", name: "Pro 6'10\" Casting Rod", price: 179.99, rating: 4.7, reviews: 126, weight: "Medium", power: "M", action: "Fast", length: "6'10\"", water: "Freshwater", img: "https://images.unsplash.com/photo-1518834107812-67bffb6f6a00?q=80&w=1600&auto=format&fit=crop", badge: "Pro Pick" },
+      { id: "rod-salt-8", name: "SaltGuard 8' Inshore Rod", price: 219.00, rating: 4.9, reviews: 94, weight: "Medium-Heavy", power: "MH", action: "Moderate Fast", length: "8'0\"", water: "Saltwater", img: "https://images.unsplash.com/photo-1549887534-1541e9323cba?q=80&w=1600&auto=format&fit=crop", badge: "New" },
+      { id: "rod-travel-56", name: "TrailMate 5'6\" Travel Rod", price: 129.00, rating: 4.5, reviews: 73, weight: "Ultralight", power: "UL", action: "Fast", length: "5'6\"", water: "Freshwater", img: "https://images.unsplash.com/photo-1556526580-903c1eaf7c79?q=80&w=1600&auto=format&fit=crop", badge: "Travel" },
+      { id: "rod-kayak-7", name: "Kayak 7' Compact Rod", price: 139.00, rating: 4.6, reviews: 51, weight: "Medium", power: "M", action: "Moderate", length: "7'0\"", water: "Freshwater", img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop", badge: "Compact" },
+      { id: "rod-offshore-9", name: "Offshore 9' Big Game Rod", price: 329.00, rating: 4.7, reviews: 38, weight: "Heavy", power: "H", action: "Fast", length: "9'0\"", water: "Saltwater", img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1600&auto=format&fit=crop", badge: "Premium" },
+    ];
+
+    // State
+    const state = {
+      query: "",
+      water: "All",
+      power: "All",
+      cart: [],
+      promo: "",
+    };
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    const currency = (n) => n.toLocaleString(undefined, { style: "currency", currency: "USD" });
+
+    function renderProducts() {
+      const grid = $("#grid");
+      grid.innerHTML = "";
+      const filtered = PRODUCTS.filter(p =>
+        (state.water === "All" || p.water === state.water) &&
+        (state.power === "All" || p.power === state.power) &&
+        (state.query.trim() === "" || p.name.toLowerCase().includes(state.query.toLowerCase()))
+      );
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="text-slate-600">No products match your filters.</div>`;
+        return;
+      }
+      for (const p of filtered) {
+        const card = document.createElement("div");
+        card.className = "card group";
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${p.img}" alt="${p.name}" class="h-56 w-full object-cover transition-transform group-hover:scale-105"/>
+            ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+          </div>
+          <div class="card-h space-y-1">
+            <div class="flex items-center justify-between">
+              <div class="text-lg font-semibold">${p.name}</div>
+              <div class="text-base">${currency(p.price)}</div>
+            </div>
+            <div class="text-sm text-slate-600">${p.length} • ${p.action} • ${p.power} • ${p.water}</div>
+            <div class="flex items-center justify-between mt-2">
+              <div class="text-yellow-500 text-sm">★ ${p.rating.toFixed(1)} <span class="text-slate-500">(${p.reviews})</span></div>
+            </div>
+            <div class="mt-4 flex gap-2">
+              <button class="btn btn-primary flex-1" data-add="${p.id}">Add to cart</button>
+              <button class="btn flex-1" data-details="${p.id}">Details</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    function addToCart(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      const existing = state.cart.find(i => i.id === id);
+      if (existing) existing.qty += 1;
+      else state.cart.push({ ...p, qty: 1 });
+      updateCartUI();
+      openCart();
+    }
+
+    function updateQty(id, delta) {
+      const item = state.cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty = Math.max(1, item.qty + delta);
+      updateCartUI();
+    }
+
+    function removeItem(id) {
+      state.cart = state.cart.filter(i => i.id !== id);
+      updateCartUI();
+    }
+
+    function computeTotals() {
+      const subtotal = state.cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const discount = state.promo.trim().toUpperCase() === "TIGHTLINES" ? subtotal * 0.10 : 0;
+      const shipping = subtotal - discount > 200 || subtotal === 0 ? 0 : 12;
+      const tax = (subtotal - discount) * 0.08;
+      const total = Math.max(0, subtotal - discount) + shipping + tax;
+      return { subtotal, discount, shipping, tax, total };
+    }
+
+    function updateCartUI() {
+      $("#cartCount").textContent = state.cart.reduce((s, i) => s + i.qty, 0);
+      const wrap = $("#cartItems");
+      wrap.innerHTML = "";
+      if (state.cart.length === 0) {
+        wrap.innerHTML = `<p class="text-sm text-slate-600">Your cart is empty.</p>`;
+      } else {
+        for (const item of state.cart) {
+          const row = document.createElement("div");
+          row.className = "card";
+          row.innerHTML = `
+            <div class="p-4 grid grid-cols-[72px_1fr_auto] gap-4">
+              <img src="${item.img}" alt="" class="h-16 w-16 object-cover rounded-lg"/>
+              <div>
+                <div class="font-medium leading-tight">${item.name}</div>
+                <div class="text-sm text-slate-600">${item.length} · ${item.action} · ${item.power}</div>
+                <div class="mt-1 text-sm">${currency(item.price)}</div>
+                <div class="mt-2 flex items-center gap-2">
+                  <button class="btn" data-dec="${item.id}" aria-label="Decrease">−</button>
+                  <span class="w-8 text-center">${item.qty}</span>
+                  <button class="btn" data-inc="${item.id}" aria-label="Increase">+</button>
+                </div>
+              </div>
+              <button class="btn-ghost p-2" data-remove="${item.id}" aria-label="Remove">🗑️</button>
+            </div>
+          `;
+          wrap.appendChild(row);
+        }
+      }
+      const t = computeTotals();
+      $("#totals").innerHTML = `
+        <div class="flex justify-between"><span>Subtotal</span><span>${currency(t.subtotal)}</span></div>
+        <div class="flex justify-between"><span>Discount</span><span>-${currency(t.discount)}</span></div>
+        <div class="flex justify-between"><span>Shipping</span><span>${t.shipping === 0 ? "Free" : currency(t.shipping)}</span></div>
+        <div class="flex justify-between"><span>Tax (est.)</span><span>${currency(t.tax)}</span></div>
+        <hr class="my-2 sep"/>
+        <div class="flex justify-between font-semibold text-base"><span>Total</span><span>${currency(t.total)}</span></div>
+      `;
+      $("#checkout").disabled = state.cart.length === 0;
+    }
+
+    function openCart() {
+      $("#cartDrawer").classList.add("open");
+      $("#overlay").classList.add("show");
+      $("#cartBtn").setAttribute("aria-expanded", "true");
+    }
+    function closeCart() {
+      $("#cartDrawer").classList.remove("open");
+      $("#overlay").classList.remove("show");
+      $("#cartBtn").setAttribute("aria-expanded", "false");
+    }
+
+    // Reviews
+    function renderReviews() {
+      const items = [
+        { name: "Samantha R.", text: "Insane sensitivity — felt the lightest tap and stuck a 4lb smallmouth." },
+        { name: "Eric T.", text: "Balanced perfectly with a 2500 reel. Could cast finesse baits all day." },
+        { name: "Monique G.", text: "Build quality is superb. Guides are aligned, wraps are flawless." },
+        { name: "Diego P.", text: "Handled redfish in the marsh with ease. Zero corrosion after rinse." },
+        { name: "Hayley K.", text: "Plenty of backbone to turn snook from structure." },
+        { name: "Andre V.", text: "Light enough for popping corks, strong enough for jigs." },
+      ];
+      const grid = $("#reviewsGrid");
+      for (const r of items) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<div class="card-h"><div class="text-base font-semibold">${r.name}</div><p class="text-sm text-slate-600">${r.text}</p></div>`;
+        grid.appendChild(card);
+      }
+    }
+
+    // Event listeners
+    document.addEventListener("click", (e) => {
+      const add = e.target.closest("[data-add]");
+      if (add) { addToCart(add.getAttribute("data-add")); }
+      const inc = e.target.closest("[data-inc]");
+      if (inc) { updateQty(inc.getAttribute("data-inc"), +1); }
+      const dec = e.target.closest("[data-dec]");
+      if (dec) { updateQty(dec.getAttribute("data-dec"), -1); }
+      const rem = e.target.closest("[data-remove]");
+      if (rem) { removeItem(rem.getAttribute("data-remove")); }
+      if (e.target.id === "cartBtn") openCart();
+      if (e.target.id === "closeCart" || e.target.id === "overlay") closeCart();
+      if (e.target.id === "applyPromo") { state.promo = $("#promo").value || ""; updateCartUI(); }
+      if (e.target.id === "checkout") alert("Demo checkout complete! (Replace with your payment gateway)");
+    });
+
+    $("#search").addEventListener("input", (e) => { state.query = e.target.value; renderProducts(); });
+    $("#water").addEventListener("change", (e) => { state.water = e.target.value; renderProducts(); });
+    $("#power").addEventListener("change", (e) => { state.power = e.target.value; renderProducts(); });
+
+    // Init
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderProducts();
+    renderReviews();
+    updateCartUI();
+  </script>
+</body>
+</html>
